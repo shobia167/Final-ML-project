@@ -1,0 +1,66 @@
+{
+  "4bed0e7a": {
+    "dataset_id": "4bed0e7a",
+    "filename": "Groceries_dataset.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\4bed0e7a_Groceries_dataset.csv",
+    "extension": "csv",
+    "file_size": 1103280,
+    "uploaded_at": "2026-07-01T17:56:19.686465"
+  },
+  "4ebc3a88": {
+    "dataset_id": "4ebc3a88",
+    "filename": "creditcard.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\4ebc3a88_creditcard.csv",
+    "extension": "csv",
+    "file_size": 150828752,
+    "uploaded_at": "2026-07-01T17:58:55.906964"
+  },
+  "a6606412": {
+    "dataset_id": "a6606412",
+    "filename": "creditcard.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\a6606412_creditcard.csv",
+    "extension": "csv",
+    "file_size": 150828752,
+    "uploaded_at": "2026-07-01T18:18:00.780516"
+  },
+  "d322cbf3": {
+    "dataset_id": "d322cbf3",
+    "filename": "creditcard.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\d322cbf3_creditcard.csv",
+    "extension": "csv",
+    "file_size": 150828752,
+    "uploaded_at": "2026-07-01T18:20:49.325223"
+  },
+  "02e5828f": {
+    "dataset_id": "02e5828f",
+    "filename": "creditcard.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\02e5828f_creditcard.csv",
+    "extension": "csv",
+    "file_size": 150828752,
+    "uploaded_at": "2026-07-01T18:29:15.550290"
+  },
+  "19e2a873": {
+    "dataset_id": "19e2a873",
+    "filename": "creditcard.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\19e2a873_creditcard.csv",
+    "extension": "csv",
+    "file_size": 150828752,
+    "uploaded_at": "2026-07-01T19:13:10.977411"
+  },
+  "860b812f": {
+    "dataset_id": "860b812f",
+    "filename": "heart.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\860b812f_heart.csv",
+    "extension": "csv",
+    "file_size": 38114,
+    "uploaded_at": "2026-07-01T19:19:11.237978"
+  },
+  "9e225bb0": {
+    "dataset_id": "9e225bb0",
+    "filename": "Salary_dataset.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\9e225bb0_Salary_dataset.csv",
+    "extension": "csv",
+    "file_size": 664,
+    "uploaded_at": "2026-07-01T20:10:57.012912"
+  }
+}
