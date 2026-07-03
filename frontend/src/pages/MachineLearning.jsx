@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useNotifications } from '../context/NotificationContext'
 
@@ -44,6 +44,8 @@ export default function MachineLearning() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [loadingColumns, setLoadingColumns] = useState(false)
+  const pendingAlgoIdRef = useRef(null)
+  const initializedFromUrl = useRef(false)
 
   const handleSelectType = useCallback(async (type) => {
     setLearningType(type)
@@ -76,16 +78,22 @@ export default function MachineLearning() {
       .then((types) => {
         setLearningTypes(types)
         const typeParam = searchParams.get('type')
+        const algoParam = searchParams.get('algo')
         if (typeParam && types.some((t) => t.id === typeParam)) {
           handleSelectType(typeParam)
+          if (algoParam) {
+            pendingAlgoIdRef.current = algoParam
+          }
         }
+        initializedFromUrl.current = true
       })
       .catch(() => {})
     fetch(`${API}/api/datasets`)
       .then((r) => r.json())
       .then(setDatasets)
       .catch(() => {})
-  }, [searchParams, handleSelectType])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleSelectAlgorithm = useCallback((algo) => {
     setSelectedAlgorithm(algo)
@@ -261,33 +269,29 @@ export default function MachineLearning() {
             <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="flex flex-col items-center gap-10">
             {algorithms.map((algo, i) => (
               <button
                 key={algo.id}
                 onClick={() => handleSelectAlgorithm(algo)}
-                className="bg-white rounded-2xl border border-border card-hover text-left w-full animate-fade-in-up"
+                className="bg-white rounded-[20px] border border-border w-full max-w-[820px] animate-fade-in-up flex flex-col items-center text-center p-9 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
                 style={{ animationDelay: `${i * 50}ms` }}
               >
-                <div className="p-5 flex flex-col h-full">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-xl bg-navy flex items-center justify-center text-white text-[10px] font-bold shrink-0 shadow-sm">
-                      {algo.icon}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-sm font-bold text-navy font-[family-name:Plus_Jakarta_Sans]">{algo.name}</h3>
-                      <span className={`inline-block mt-1.5 text-[10px] font-semibold px-2 py-0.5 rounded-full ${taskBadgeColors[algo.task] || 'bg-gray-50 text-gray-600'}`}>
-                        {taskLabels[algo.task] || algo.task}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 leading-relaxed flex-1 line-clamp-2">{algo.description}</p>
-                  <div className="mt-3 pt-3 border-t border-border flex items-center justify-between">
-                    <span className="text-xs text-accent font-semibold">Select</span>
-                    <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <div className="w-12 h-12 rounded-xl bg-navy flex items-center justify-center text-white text-sm font-bold shadow-sm mb-4">
+                  {algo.icon}
+                </div>
+                <span className={`inline-block mb-3 text-[11px] font-semibold px-3 py-1 rounded-full ${taskBadgeColors[algo.task] || 'bg-gray-50 text-gray-600'}`}>
+                  {taskLabels[algo.task] || algo.task}
+                </span>
+                <h3 className="text-base font-bold text-navy font-[family-name:Plus_Jakarta_Sans]">{algo.name}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mt-3 max-w-xl">{algo.description}</p>
+                <div className="mt-6 pt-4 border-t border-border w-full flex justify-center">
+                  <span className="text-sm font-semibold text-accent flex items-center gap-1.5">
+                    Select
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
-                  </div>
+                  </span>
                 </div>
               </button>
             ))}

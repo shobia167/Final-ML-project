@@ -16,10 +16,10 @@ export default function App() {
 
   return (
     <NotificationProvider>
-      <div className="min-h-screen bg-surface flex relative">
+      <div className="h-screen bg-surface flex">
         <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-        <div className="flex-1 flex flex-col min-w-0 min-h-screen">
+        <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           <header className="h-16 bg-white border-b border-border sticky top-0 z-30 shrink-0">
             <div className="h-full px-5 lg:px-8 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">

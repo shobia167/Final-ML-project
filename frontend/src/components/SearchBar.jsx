@@ -47,7 +47,7 @@ export default function SearchBar() {
         .map((t) =>
           fetch(`${API}/api/algorithms/${t.id}`)
             .then((r) => r.json())
-            .then((d) => d.algorithms || [])
+            .then((d) => (d.algorithms || []).map((a) => ({ ...a, learningType: t.id })))
             .catch(() => [])
         )
       const nestedAlgos = await Promise.all(typePromises)
@@ -83,7 +83,7 @@ export default function SearchBar() {
     if (searchData) {
       searchData.algorithms.forEach((a) => {
         if (a.name?.toLowerCase().includes(q) || a.description?.toLowerCase().includes(q) || a.task?.toLowerCase().includes(q)) {
-          out.push({ label: a.name, description: a.description, path: `/machine-learning?algo=${a.id}`, category: 'Algorithms', icon: AlgoIcon })
+          out.push({ label: a.name, description: a.description, path: `/machine-learning?type=${a.learningType}&algo=${a.id}`, category: 'Algorithms', icon: AlgoIcon })
         }
       })
       searchData.datasets.forEach((d) => {

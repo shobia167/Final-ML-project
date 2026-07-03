@@ -62,5 +62,29 @@
     "extension": "csv",
     "file_size": 664,
     "uploaded_at": "2026-07-01T20:10:57.012912"
+  },
+  "9b662223": {
+    "dataset_id": "9b662223",
+    "filename": "test_scores.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\9b662223_test_scores.csv",
+    "extension": "csv",
+    "file_size": 131,
+    "uploaded_at": "2026-07-03T11:19:49.009490"
+  },
+  "7c76f4c3": {
+    "dataset_id": "7c76f4c3",
+    "filename": "predictions_5bbeddda.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\7c76f4c3_predictions_5bbeddda.csv",
+    "extension": "csv",
+    "file_size": 38996,
+    "uploaded_at": "2026-07-03T13:55:26.815686"
+  },
+  "47af406e": {
+    "dataset_id": "47af406e",
+    "filename": "Salary_dataset.csv",
+    "file_path": "C:\\Users\\shobi\\OneDrive\\Desktop\\Machine Learning\\uploads\\47af406e_Salary_dataset.csv",
+    "extension": "csv",
+    "file_size": 664,
+    "uploaded_at": "2026-07-03T14:46:42.271543"
   }
 }

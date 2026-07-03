@@ -26,8 +26,8 @@ export default function Sidebar({ open, onClose }) {
       <aside
         className={`
           bg-navy flex flex-col sidebar-transition
-          fixed top-0 left-0 z-50 h-full
-          lg:sticky lg:top-0 lg:z-0
+          fixed inset-y-0 left-0 z-50
+          lg:sticky lg:top-0 lg:z-0 lg:h-screen
           ${open ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0
           ${collapsed ? 'w-[72px]' : 'w-64 xl:w-72'}
