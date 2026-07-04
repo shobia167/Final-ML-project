@@ -251,6 +251,19 @@ body {
 .stagger-7 { animation-delay: 0.35s; opacity: 0; animation-fill-mode: forwards; }
 .stagger-8 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; }
 
+/* Ensure content is visible when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [class*="stagger-"] {
+    animation-delay: 0s !important;
+    opacity: 1 !important;
+  }
+}
+
 /* ── Section heading pattern ── */
 .section-heading {
   display: flex;
@@ -285,5 +298,51 @@ body {
 @media (max-width: 1023px) {
   .sidebar-overlay {
     backdrop-filter: blur(6px);
+  }
+}
+
+/* ── Mobile Responsiveness (<768px) ── */
+@media (max-width: 767px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .h-screen {
+    height: 100dvh;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .flex-1 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  .grid-cols-5 {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="max-w-"] {
+    max-width: 100% !important;
+  }
+
+  .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Safety net: force stagger content visible if animations fail on mobile */
+  [class*="stagger-"] {
+    opacity: 1 !important;
   }
 }
