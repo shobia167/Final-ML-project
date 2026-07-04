@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const API = 'http://localhost:5000'
-
+const API = "https://final-ml-project-sqly.onrender.com"
 const taskBadgeColors = {
   classification: 'bg-blue-50 text-blue-700 ring-1 ring-blue-200/50',
   regression: 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/50',

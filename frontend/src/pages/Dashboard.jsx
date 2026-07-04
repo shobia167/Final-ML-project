@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const API = 'http://localhost:5000'
+const API = "https://final-ml-project-sqly.onrender.com"
 
 function formatFileSize(bytes) {
   if (!bytes) return '0 B'

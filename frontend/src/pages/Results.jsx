@@ -3,8 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import VisualizationDashboard from '../components/VisualizationDashboard'
 import { useNotifications } from '../context/NotificationContext'
 
-const API = 'http://localhost:5000'
-
+const API = "https://final-ml-project-sqly.onrender.com"
 export default function Results() {
   const { addNotification } = useNotifications()
   const [searchParams] = useSearchParams()

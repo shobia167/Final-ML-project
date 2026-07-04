@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useNotifications } from '../context/NotificationContext'
 
-const API = 'http://localhost:5000'
+const API = "https://final-ml-project-sqly.onrender.com"
 
 const taskBadgeColors = {
   classification: 'bg-blue-50 text-blue-700 ring-1 ring-blue-200/50',

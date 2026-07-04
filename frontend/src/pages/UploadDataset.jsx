@@ -4,7 +4,7 @@ import {
 } from 'recharts'
 import { useNotifications } from '../context/NotificationContext'
 
-const API = 'http://localhost:5000'
+const API = "https://final-ml-project-sqly.onrender.com"
 
 function detectType(v) {
   if (v === null || v === undefined || v === '') return 'object'
